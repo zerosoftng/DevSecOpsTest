@@ -11,7 +11,7 @@ on:
 permissions:
   pull-requests: write
   contents: read
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -33,13 +33,13 @@ jobs:
 
     - name: Run tests and Coversage
       run: |
-        pytest --cov=. --cov-report=xml
-        coverage xml --omit='*test*,*__init__.py'
+        pytest --cov
+        coverage xml --omit '*test*,*__init__.py' -o .coverage-reports/coverage.xml
     
     - name: Pytest coverage comment
       uses: orgoro/coverage@v3.2
       with:
-        coverageFile: coverage.xml
+        coverageFile: .coverage-reports/coverage.xml
         token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: SonarQube Scan
