@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Demo</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    header {
+        background-image: url("{{ url_for('static', filename='img/banner.jpg') }}");
+        color: #fff;
+        padding: 50px 0;
+        max-width: 900px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        text-align: center;
+        margin-top: 10px;
+    }
+    main {
+        padding: 20px;
+        margin-bottom: 70px;
+    }
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2, h3 {
+        color: #333;
+    }
+    p {
+        line-height: 1.6;
+    }
+    code {
+        background-color: #f4f4f4;
+        padding: 2px 4px;
+        border-radius: 4px;
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>Flask Demo Application</h1>
+</header>
+<main>
+    <div class="container">
+        <h2>Introduction</h2>
+        <p>Flask is a lightweight WSGI web application framework in Python. It is designed with simplicity and flexibility in mind.</p>
+        
+        <h2>Installation</h2>
+        <p>To install Flask, use pip:</p>
+        <pre><code>pip install Flask</code></pre>
+        
+        <h2>Quick Start</h2>
+        <p>Here is a simple example of a Flask application:</p>
+        <pre><code>
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run(debug=True)
+</code></pre>
+        
+        <h2>Routing</h2>
+        <p>Flask uses decorators to define routes:</p>
+        <pre><code>
+@app.route('/hello')
+def hello():
+    return 'Hello, Flask!'
+</code></pre>
+        
+        <h2>Templates</h2>
+        <p>Flask uses Jinja2 templating engine. Here is an example:</p>
+        <pre><code>{% raw %}<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ heading }}</h1>
+    <p>{{ message }}</p>
+</body>
+</html>{% endraw %}</code></pre>
+        
+        <h2>Static Files</h2>
+        <p>Flask can serve static files such as CSS and JavaScript:</p>
+        <pre><code>app = Flask(__name__, static_url_path='/static')</code></pre>
+        
+        <h2>Conclusion</h2>
+        <p>Flask is a powerful and flexible framework for building web applications in Python. It is easy to get started with and has a large community of users and developers.</p>
+    </div>
+</main>
+<footer>
+    <p>&copy; 2023 Flask Demo. All rights reserved.</p>
+</footer>
+</body>
+</html>
