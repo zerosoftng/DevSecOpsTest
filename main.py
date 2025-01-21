@@ -1,5 +1,4 @@
 from flask import Flask, render_template, jsonify
-from os import environ
 
 app = Flask(__name__)
 
@@ -12,14 +11,6 @@ def index():
 @app.route('/health')
 def health():
     return jsonify({'status': 'UP'})
-
-def calculate():
-    print('Calculating...')
-    return 1 + 1
-
-def calculate2():
-    print('Calculating...')
-    return 1 + 1
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
