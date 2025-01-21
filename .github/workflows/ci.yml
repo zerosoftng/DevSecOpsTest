@@ -25,18 +25,18 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest==8.3.4 coverage==7.6.10
+        pip install pytest==8.3.4 pytest-cov==6.0.0 coverage==7.6.1
         pip install -r requirements.txt
 
     - name: Run tests and Coversage
       run: |
-        pytest
+        pytest pytest --cov=. --cov-report=xml
         coverage xml --omit='*test*,*__init__.py'
     
     - name: Pytest coverage comment
       uses: orgoro/coverage@v3.2
       with:
-        coverageFile: path/to/coverage.xml
+        coverageFile: coverage.xml
         token: ${{ vars.ACCESS_GITHUB_TOKEN }}
 
     - name: SonarQube Scan
