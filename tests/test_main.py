@@ -8,15 +8,19 @@ def client():
     with app.test_client() as client:
         yield client
 
-
 def test_index(client):
     """Test the index route."""
     response = client.get('/')
     assert response.status_code == 200
-
 
 def test_health(client):
     """Test the index route."""
     response = client.get('/health')
     assert response.status_code == 200
     assert response.json == {'status': 'UP'}
+
+def test_hello(client):
+    """Test the index route."""
+    response = client.get('/api/v1/hello')
+    assert response.status_code == 200
+    assert response.json == {'message': 'Hello, World!'}
