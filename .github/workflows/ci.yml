@@ -30,7 +30,7 @@ jobs:
 
     - name: Run tests and Coversage
       run: |
-        pytest pytest --cov=. --cov-report=xml
+        pytest --cov=. --cov-report=xml
         coverage xml --omit='*test*,*__init__.py'
     
     - name: Pytest coverage comment
