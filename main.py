@@ -2,10 +2,7 @@ from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
-DB_USERNAME = 'root'
-DB_PASSWORD = 'root'
-DB_HOST = 'localhost'
-DB_PORT = '3306'
+app_name = 'The great application'
 
 @app.route('/')
 def index():
