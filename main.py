@@ -1,11 +1,9 @@
 from flask import Flask, render_template, jsonify
+from os import environ
 
 app = Flask(__name__)
 
-DB_USERNAME = 'root'
-DB_PASSWORD = 'root'
-DB_HOST = 'localhost'
-DB_PORT = '3306'
+app_name = 'The great application'
 
 @app.route('/')
 def index():
@@ -14,6 +12,14 @@ def index():
 @app.route('/health')
 def health():
     return jsonify({'status': 'UP'})
+
+def calculate():
+    print('Calculating...')
+    return 1 + 1
+
+def calculate2():
+    print('Calculating...')
+    return 1 + 1
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
